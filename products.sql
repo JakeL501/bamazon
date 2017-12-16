@@ -1,44 +1,52 @@
-DROP DATABASE IF EXISTS bamazonDB;
+-- Drops the "bamazon" database --
 
-CREATE DATABASE bamazonDB;
+DROP DATABASE IF EXISTS bamazon;
 
-USE bamazonDB;
+-- Creates the "bamazon" database --
 
+CREATE DATABASE bamazon;
+
+-- all of the code will affect "bamazon" --
+USE bamazon;
+
+-- Creates the table "products" within bamazon --
 CREATE TABLE products (
-  id INT NOT NULL AUTO_INCREMENT,
-  product VARCHAR(45) NULL,
-  department VARCHAR(45) NULL,
-  price DECIMAL(10,2) NULL,
-  quantity INT NULL,
-  PRIMARY KEY (id)
+	ItemID INTEGER(11) AUTO_INCREMENT NOT NULL,
+  ProductName  VARCHAR(50) NOT NULL,
+  DepartmentName VARCHAR(50) NOT NULL,
+  Price DECIMAL(10,2),
+	StockQuantity INTEGER(10),
+  PRIMARY KEY (ItemID)
 );
 
-INSERT INTO products (product, department, price, quantity)
-VALUES ("PlayStation 4", "gaming", 399.99, 100);
+INSERT INTO products (ProductName,DepartmentName,Price,StockQuantity)
+VALUES ("Assorted Candy", "food", 1.99, 10);
 
-INSERT INTO products (product, department, price, quantity)
-VALUES ("Fender Guitar", "music", 250.00, 10);
-
-INSERT INTO products (product, department, price, quantity)
-VALUES ("Your Enemies Blood", "ritual", 1000.00, 1);
-
-INSERT INTO products (product, department, price, quantity)
-VALUES ("Jar Jar Binks Head", "decor", 200.00, 1);
-
-INSERT INTO products (product, department, price, quantity)
-VALUES ("Fuzzy Warm Blanket", "home", 24.95, 25);
-
-INSERT INTO products (product, department, price, quantity)
-VALUES ("Birdemic", "movies", 4.99, 50);
-
-INSERT INTO products (product, department, price, quantity)
-VALUES ("Dickite", "minerals", 49.95, 50);
-
-INSERT INTO products (product, department, price, quantity)
-VALUES ("Bleach", "chemicals", 14.99, 100);
-
-INSERT INTO products (product, department, price, quantity)
+INSERT INTO products (ProductName,DepartmentName,Price,StockQuantity)
 VALUES ("A cat", "animals", 300.00, 1);
 
-INSERT INTO products (product, department, price, quantity)
-VALUES ("Assorted Candy", "food", 1.99, 10);
+INSERT INTO products (ProductName,DepartmentName,Price,StockQuantity)
+VALUES ("Bleach", "chemicals", 14.99, 100);
+
+INSERT INTO products (ProductName,DepartmentName,Price,StockQuantity)
+VALUES ("Birdemic", "movies", 4.99, 50);
+
+INSERT INTO products (ProductName,DepartmentName,Price,StockQuantity)
+VALUES ("Fuzzy Warm Blanket", "home", 24.95, 25);
+
+INSERT INTO products (ProductName,DepartmentName,Price,StockQuantity)
+VALUES ("Jar Jar Binks Head", "decor", 200.00, 1);
+
+INSERT INTO products (ProductName,DepartmentName,Price,StockQuantity)
+VALUES ("Your Enemies Blood", "ritual", 1000.00, 1);
+
+INSERT INTO products ( ProductName,DepartmentName,Price,StockQuantity)
+VALUES ("Fender Guitar", "music", 250.00, 10);
+
+INSERT INTO products (ProductName,DepartmentName,Price,StockQuantity)
+VALUES ("PlayStation 4", "gaming", 399.99, 100);
+
+INSERT INTO products (ProductName,DepartmentName,Price,StockQuantity)
+VALUES ("Drone", "electronics", 199.99, 50);
+
+select * FROM products

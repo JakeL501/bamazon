@@ -8,7 +8,7 @@ var connection = mysql.createConnection({
 	host: 'localhost',
 	port: 3306,
 	user: 'root',
-	password: 'SABian20_', //your mysql workbench password goes here
+	password: '', //your mysql workbench password goes here
 	database:  'bamazon'
 });
 
@@ -44,9 +44,9 @@ var purchaseItem = function() {
 
 	}]).then(function(answer) {
 		// Query the database for info about the item including the quantity currently in stock. 
-		connection.query('SELECT product, department, price, quantity FROM products WHERE ?', {ItemID: answer.id}, function(err,res) {
+		connection.query('SELECT ProductName, DepartmentName, Price, StockQuantity FROM products WHERE ?', {ItemID: answer.id}, function(err,res) {
 			
-		console.log('\n  You would like to buy ' + answer.quantity + ' ' + res[0].product + ' ' + res[0].department + ' at $' + res[0].price + ' each'
+		console.log('\n  You would like to buy ' + answer.quantity + ' ' + res[0].ProductName + ' ' + res[0].DepartmentName + ' at $' + res[0].Price + ' each'
 			);
 			if (res[0].StockQuantity >= answer.quantity) {
 				//If enough inventory to complete order, process order by updating database inventory and notifying customer that order is complete. 
